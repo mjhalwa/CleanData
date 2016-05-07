@@ -1,5 +1,4 @@
-Project for the "Getting and Cleaning Data" Course
-==================================================
+# Project for the "Getting and Cleaning Data" Course
 
 This project uses collected accelerometer and gyroscope data.
 The data was collected from several independent smartphones of
@@ -8,19 +7,16 @@ for details.
 
 Within this project the data will be merged into tidy R data sets.
 
-Files:
-------
+## Files:
 1. **getData.R** downloads raw data files from [this file](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
 2. **run_analysis.R** operates on the raw data to generate tidy data sets
 3. **CodeBook.md** explains the transformations from raw data to the tidy data sets and describes variables and the data in detail.
 
-GetData:
---------
+## GetData:
 This script has to be run prior to any other script. It downloads the raw data zip-file from the upper link
 and unzips the inherent directory structure to the current path.
 
-Run_Analysis:
--------------
+## Run_Analysis:
 1. read in raw data
   - read data from feature vector file
   - read the feature vector column labeling and apply this labeling to read feature vector data
@@ -28,8 +24,7 @@ Run_Analysis:
   - read subject number file and add this column with label 'subject'
 2. 
 
-Raw Data Files:
----------------
+## Raw Data Files:
 General data can be found in './UCI HAR Dataset':
 - **activity_labels.txt** ... connecting activity numbering to literal expressions
 - **features.txt** ... column labeling for the 'X_<set>.txt' files (see below)
@@ -41,8 +36,7 @@ Specific data can be found in './UCI HAR Dataset/<set>' where <set> can be 'trai
 - **Y_<set>.txt** ... activity link as 1 numeric column. Number between 1 and 6. For literal expression see './UCI HAR Dataset/activity_labels.txt'
 - **subject_<set>.txt** ... subject number as 1 numeric column. Number between 1 and 30 for the 30 volunteers.
 
-Details about the Raw dataset:
-------------------------------
+## Details about the Raw dataset:
 - 30 volunteers (age: 19-48)
 - 6 activities performed -> activity_labels.txt
   - WALKING
