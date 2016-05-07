@@ -3,7 +3,7 @@ Project for the "Getting and Cleaning Data" Course
 
 This project uses collected accelerometer and gyroscope data.
 The data was collected from several independent smartphones of
-same brand and type (view [http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones this link])
+same brand and type (view [this link](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones this link))
 for details.
 
 Within this project the data will be merged into tidy R data sets.
@@ -22,10 +22,10 @@ and unzips the inherent directory structure to the current path.
 Run_Analysis:
 -------------
 1. read in raw data
-- read data from feature vector file
-- read the feature vector column labeling and apply this labeling to read feature vector data
-- read activity number file and apply literal factors from './UCI HAR Dataset/activity_labels.txt', then add this column with label 'activity'
-- read subject number file and add this column with label 'subject'
+  - read data from feature vector file
+  - read the feature vector column labeling and apply this labeling to read feature vector data
+  - read activity number file and apply literal factors from './UCI HAR Dataset/activity_labels.txt', then add this column with label 'activity'
+  - read subject number file and add this column with label 'subject'
 2. 
 
 Raw Data Files:
