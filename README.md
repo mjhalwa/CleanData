@@ -11,8 +11,8 @@ Within this project the data will be merged into tidy R data sets.
 1. **getData.R** downloads and unzips raw data files from [this file](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
 2. **run_analysis.R** operates on the raw data to generate tidy data sets
 3. **CodeBook.md** explains the transformations from raw data to the tidy data sets and describes variables and the data in detail.
-4. **data.dat** descriptive tidy form of raw data
-5. **average.dat** descriptive tidy data containing average variables for each subjectid and activity
+4. **data.txt** descriptive tidy form of raw data
+5. **average.txt** descriptive tidy data containing average variables for each subjectid and activity
 
 ## GetData:
 This script has to be run first. It downloads the raw data zip-file from the upper link
