@@ -82,6 +82,48 @@ combineRelevantData <- function(trainRawData, testRawData)
   data
 }
 
+## modify column titles to be descriptive
+# @param[in] data data set with improper column names
+# @return data set with proper column names (+reordered)
+##
+setupDescriptiveNames <- function(data)
+{
+  library(dplyr)
+  
+  # repair naming error (from raw data) "*BodyBody*" -> "*Body*"
+  names(data) <- sub("BodyBody","Body",names(data))
+  # dismiss paranthesis
+  names(data) <- sub("\\(\\)","",names(data))
+  # write magnitude after mean / std
+  names(data) <- sub("Mag-mean","-mean-Mag",names(data))
+  names(data) <- sub("Mag-std","-std-Mag",names(data))
+  # change "-" to "_"
+  names(data) <- gsub("-","_",names(data))
+  # separate words
+  names(data) <- sub("Body","_Body",names(data))
+  names(data) <- sub("Gravity","_Gravity",names(data))
+  names(data) <- sub("Gyro","_Gyro",names(data))
+  names(data) <- sub("Acc","_Acc",names(data))
+  names(data) <- sub("Jerk","_Jerk",names(data))
+  # lower case letters
+  names(data) <- tolower(names(data))
+  
+  # reorder for activity, subjectid and partition as first columns
+  select(data, subjectid, activity, partition, t_body_acc_mean_x:f_body_gyro_jerk_std_mag)
+}
+
+## create averaged data set
+# @param[in] data data set with activity, subjectid and variable columns
+# @return data set with average variable values for each activity and subjectid
+##
+createAverageData <- function(data)
+{
+  library(dplyr)
+  #copy and group current data
+  tempData <- group_by(data, subjectid, activity)
+  #average each variable
+  summarize_each(tempData, funs(mean), -(subjectid:partition))
+}
 
 # read data sets
 trainRawData <- readRawData("train")
@@ -90,14 +132,11 @@ testRawData <- readRawData("test")
 # merge data and extract only mean and std() variables
 data <- combineRelevantData(trainRawData, testRawData)
 
-# tidy data
+# set descriptive names
+data <- setupDescriptiveNames(data)
 
-
-
-
-
-
-
+# create indipendet tidy data set with average variables for activity and subject
+averageData <- createAverageData(data)
 
 
 #tidy data
