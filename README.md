@@ -27,8 +27,16 @@ and unzips the inherent directory structure to the current path.
   - adding a factor-column "partition" for "test" data set with level "test"
   - combine both data sets
   - keep only mean and standard deviation variables
-3. tidy data
-  -  
+3. setup descriptive names
+  - correct "BodyBody" in variable names to just "Body"
+  - put "Mag" to the end of these variables names to have same position as X,Y and Z coordinate
+  - separate each descriptive part of the variable with an underscore "_"
+  - make variable names lowercase
+  - reorder columns to begin with the observation-describing columns
+4. create mean data set
+  - copy current data set
+  - introduce goups for subject IDs and activities
+  - create new tidy data set from this copy, averaging each variable (applying the grouping)
 
 ## Raw Data Files:
 General data can be found in './UCI HAR Dataset':
@@ -55,7 +63,7 @@ Specific data can be found in './UCI HAR Dataset/<set>' where <set> can be 'trai
 - randomly:
   - 70% of volunteers = training data  --> 70% of 30 = 21 volunteers
   - 30% of volunteers = test data      --> 30% of 30 = 9 volunteers
-- sensor signal sampled in fixed windows
-- in each window data gravity was separated from acceleration by Butterwort low-pass filter
+- sensor signal sampled in fixed windows --> rows with same subject and activity = different windows
+- in each window gravity data was separated from body acceleration data by Butterwort low-pass filter
 - from each window a vector of features was optained -> features_info.txt
 - complete list of variables of each feature vector -> features.txt
