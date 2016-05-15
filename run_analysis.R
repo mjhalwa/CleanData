@@ -138,5 +138,8 @@ data <- setupDescriptiveNames(data)
 # create indipendet tidy data set with average variables for activity and subject
 averageData <- createAverageData(data)
 
+#output
+write.table(data, "data.dat")
+write.table(averageData, "averageData.dat")
 
 #tidy data
