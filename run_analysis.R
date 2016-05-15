@@ -139,7 +139,7 @@ data <- setupDescriptiveNames(data)
 averageData <- createAverageData(data)
 
 #output
-write.table(data, "data.dat")
-write.table(averageData, "averageData.dat")
+write.table(data, "data.txt", row.names=FALSE)
+write.table(averageData, "averageData.txt", row.names=FALSE)
 
 #tidy data
